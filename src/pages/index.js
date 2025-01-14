@@ -103,8 +103,117 @@ const Home = () => {
                 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
                 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" />
                 <link rel="shortcut icon" href={(userData.adminfaviconUrl)?userData.adminfaviconUrl:"../assets/images/favicon.png"} />
-                {/* Add any other stylesheets as needed */}
             </Head>
+
+            <style jsx global>{`
+                :root {
+                    --dark-bg: #14141F;
+                    --darker-bg: #0D0D14;
+                    --primary: #6366f1;
+                    --accent: #FF5733;
+                    --text-light: #fff;
+                    --text-gray: #94A3B8;
+                }
+
+                body {
+                    background: var(--dark-bg);
+                    color: var(--text-light);
+                    font-family: 'Plus Jakarta Sans', sans-serif;
+                }
+
+                .ps-header-wrapper {
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    z-index: 100;
+                    background: rgba(20, 20, 31, 0.8);
+                    backdrop-filter: blur(10px);
+                    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+                    padding: 15px 0;
+                }
+
+                .ps-header-flex {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                }
+
+                .rz_logo {
+                    display: flex;
+                    align-items: center;
+                }
+
+                .ps_logo_header img {
+                    height: 40px;
+                    width: auto;
+                }
+
+                .ps-menu ul {
+                    display: flex;
+                    gap: 48px;
+                    margin: 0;
+                    padding: 0;
+                    list-style: none;
+                }
+
+                .ps-menu ul li a {
+                    color: #fff;
+                    font-size: 16px;
+                    text-decoration: none;
+                    transition: color 0.3s;
+                }
+
+                .ps-menu ul li a:hover {
+                    color: #6366f1;
+                }
+
+                .ps-header-btn {
+                    display: flex;
+                    gap: 16px;
+                }
+
+                .ps-header-btn .ps-btn {
+                    display: inline-flex;
+                    align-items: center;
+                    padding: 8px 24px;
+                    border-radius: 8px;
+                    font-size: 16px;
+                    font-weight: 500;
+                    text-decoration: none;
+                    color: #fff;
+                    background: #6366f1;
+                    border: none;
+                    transition: all 0.3s;
+                }
+
+                .ps-header-btn .ps-btn:hover {
+                    opacity: 0.9;
+                    transform: translateY(-1px);
+                }
+
+                @media (max-width: 991px) {
+                    .ps-menu ul {
+                        gap: 32px;
+                    }
+                }
+
+                @media (max-width: 768px) {
+                    .ps-menu {
+                        display: none;
+                    }
+                    
+                    .ps-header-btn {
+                        gap: 8px;
+                    }
+                    
+                    .ps-header-btn .ps-btn {
+                        padding: 6px 16px;
+                        font-size: 14px;
+                    }
+                }
+            `}</style>
+
             <Script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" />
             <Script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.1/js/bootstrap.min.js" />
             <Script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js" />
@@ -503,7 +612,7 @@ const Home = () => {
                 }
             `}</style>
 
-            <section className="ps-feature-wrapper">
+            <section className="ps-feature-wrapper" id='features'>
                 <div className="container">
                     <div className="ps-feature-heading">
                         <h4>MOST PREMIUM AND EXCLUSIVE</h4>
@@ -1356,8 +1465,101 @@ const Home = () => {
         </div>
     </div>
 </div>
-
             </section>
+
+            <style jsx global>{`
+                .ps-temnl-wrapper {
+                    background: #14141F;
+                    padding: 80px 0;
+                    position: relative;
+                    overflow: hidden;
+                }
+
+                .ps-tsmnl-heading {
+                    text-align: center;
+                    margin-bottom: 60px;
+                }
+
+                .ps-tsmnl-heading img {
+                    margin-bottom: 20px;
+                }
+
+                .ps-tsmnl-heading h1 {
+                    font-size: 42px;
+                    font-weight: 700;
+                    color: #fff;
+                    max-width: 800px;
+                    margin: 0 auto;
+                }
+
+                .ps-tesmnl-box {
+                    height: 100%;
+                }
+
+                .ps-tesmnl-inner {
+                    background: #1E1E2D;
+                    border-radius: 16px;
+                    padding: 30px;
+                    height: 100%;
+                    transition: transform 0.3s ease;
+                }
+
+                .ps-tesmnl-inner:hover {
+                    transform: translateY(-5px);
+                }
+
+                .ps-tesmnl-head-flex {
+                    display: flex;
+                    align-items: center;
+                    gap: 15px;
+                    margin-bottom: 20px;
+                }
+
+                .ps-tesmnl-head-flex img {
+                    width: 60px;
+                    height: 60px;
+                    border-radius: 50%;
+                    object-fit: cover;
+                }
+
+                .ps-tesmnl-clnt-info h4 {
+                    font-size: 18px;
+                    font-weight: 600;
+                    color: #fff;
+                    margin-bottom: 5px;
+                }
+
+                .ps-tesmnl-clnt-info p {
+                    font-size: 14px;
+                    color: #94A3B8;
+                    margin: 0;
+                }
+
+                .ps-tesmnl-inner p {
+                    color: #94A3B8;
+                    font-size: 16px;
+                    line-height: 1.6;
+                    margin: 0;
+                }
+
+                @media (max-width: 991px) {
+                    .ps-tsmnl-heading h1 {
+                        font-size: 36px;
+                    }
+                }
+
+                @media (max-width: 767px) {
+                    .ps-temnl-wrapper {
+                        padding: 60px 0;
+                    }
+                    .ps-tsmnl-heading h1 {
+                        font-size: 28px;
+                    }
+                    .ps-tesmnl-inner {
+                        padding: 20px;
+                    }
+                }
+            `}</style>
 
             <style jsx global>{`
                 .ps-footer-wrapper {
@@ -1533,104 +1735,6 @@ const Home = () => {
                     }
                 }
             `}</style>
-<style jsx global>{`
-        .ps-header-wrapper {
-          position: fixed;
-          top: 0;
-          left: 0;
-          right: 0;
-          z-index: 100;
-        }
-
-        .container {
-          max-width: 1200px;
-          margin: 0 auto;
-          padding: 0 24px;
-        }
-
-        .ps-header-flex {
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-        }
-
-        .ps-logo img {
-          height: 40px;
-          width: auto;
-        }
-
-        .ps-menu ul {
-          display: flex;
-          gap: 48px;
-          margin: 0;
-          padding: 0;
-          list-style: none;
-        }
-
-        .ps-menu ul li a {
-          color: #fff;
-          font-size: 16px;
-          text-decoration: none;
-          transition: color 0.3s;
-        }
-
-        .ps-menu ul li a:hover {
-          color: #6366f1;
-        }
-
-        .ps-header-btn {
-          display: flex;
-          gap: 16px;
-        }
-
-        .login-btn {
-          display: inline-flex;
-          align-items: center;
-          padding: 8px 24px;
-          border-radius: 8px;
-          font-size: 16px;
-          font-weight: 500;
-          text-decoration: none;
-          color: #fff;
-          background: #6366f1;
-          border: none;
-          transition: all 0.3s;
-        }
-
-        .buy-btn {
-          display: inline-flex;
-          align-items: center;
-          padding: 8px 24px;
-          border-radius: 8px;
-          font-size: 16px;
-          font-weight: 500;
-          text-decoration: none;
-          color: #fff;
-          background: #6366f1;
-          border: none;
-          transition: all 0.3s;
-        }
-
-        .login-btn:hover, .buy-btn:hover {
-          opacity: 0.9;
-          transform: translateY(-1px);
-        }
-
-        @media (max-width: 768px) {
-          .ps-menu {
-            display: none;
-          }
-          
-          .ps-header-btn {
-            gap: 8px;
-          }
-          
-          .login-btn, .buy-btn {
-            padding: 6px 16px;
-            font-size: 14px;
-          }
-        }
-      `}</style>
 
             <footer className="ps-footer-wrapper">
                     <div className="ps-footer-inner">

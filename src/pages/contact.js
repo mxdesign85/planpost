@@ -32,38 +32,56 @@ export default function Contact() {
       <header className="ps-header-wrapper">
         <div className="container">
           <div className="ps-header-flex">
-            <div className="ps-logo">
+            <div className='rz_logo'>                             
               <Link href="/">
-                <img src="/assets/images/Logo.png" alt="Planpost" />
+                <span className='ps_logo_header'> 
+                  <img src={process.env.APP_LOGO} alt="Planpost" />
+                </span>
               </Link>
             </div>
-            <nav className="ps-menu">
+            <div className="ps-menu">
               <ul>
-                <li><Link href="/features">Features</Link></li>
-                <li><Link href="/plans">Plans</Link></li>
+                <li><Link href="/#features">Features</Link></li>
+                <li><Link href="/#plans">Plans</Link></li>
                 <li><Link href="/contact">Contact</Link></li>
               </ul>
-            </nav>
-            <div className="ps-header-btn">
-              <Link href="/login" className="login-btn">LOGIN</Link>
-              <Link href="/#plans" className="buy-btn">BUY NOW</Link>
+            </div>
+            <div>
+              <div className="ps-header-btn">
+                <Link href="/login" className="ps-btn">login</Link>
+                <Link href="/#plans" className="ps-btn">buy now</Link>
+              </div>
             </div>
           </div>
         </div>
       </header>
+
       <style jsx global>{`
+        :root {
+          --dark-bg: #14141F;
+          --darker-bg: #0D0D14;
+          --primary: #6366f1;
+          --accent: #FF5733;
+          --text-light: #fff;
+          --text-gray: #94A3B8;
+        }
+
+        body {
+          background: var(--dark-bg);
+          color: var(--text-light);
+          font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
         .ps-header-wrapper {
           position: fixed;
           top: 0;
           left: 0;
           right: 0;
           z-index: 100;
-        }
-
-        .container {
-          max-width: 1200px;
-          margin: 0 auto;
-          padding: 0 24px;
+          background: rgba(20, 20, 31, 0.8);
+          backdrop-filter: blur(10px);
+          border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+          padding: 15px 0;
         }
 
         .ps-header-flex {
@@ -72,7 +90,12 @@ export default function Contact() {
           justify-content: space-between;
         }
 
-        .ps-logo img {
+        .rz_logo {
+          display: flex;
+          align-items: center;
+        }
+
+        .ps_logo_header img {
           height: 40px;
           width: auto;
         }
@@ -101,7 +124,7 @@ export default function Contact() {
           gap: 16px;
         }
 
-        .login-btn {
+        .ps-header-btn .ps-btn {
           display: inline-flex;
           align-items: center;
           padding: 8px 24px;
@@ -115,23 +138,15 @@ export default function Contact() {
           transition: all 0.3s;
         }
 
-        .buy-btn {
-          display: inline-flex;
-          align-items: center;
-          padding: 8px 24px;
-          border-radius: 8px;
-          font-size: 16px;
-          font-weight: 500;
-          text-decoration: none;
-          color: #fff;
-          background: #6366f1;
-          border: none;
-          transition: all 0.3s;
-        }
-
-        .login-btn:hover, .buy-btn:hover {
+        .ps-header-btn .ps-btn:hover {
           opacity: 0.9;
           transform: translateY(-1px);
+        }
+
+        @media (max-width: 991px) {
+          .ps-menu ul {
+            gap: 32px;
+          }
         }
 
         @media (max-width: 768px) {
@@ -143,7 +158,7 @@ export default function Contact() {
             gap: 8px;
           }
           
-          .login-btn, .buy-btn {
+          .ps-header-btn .ps-btn {
             padding: 6px 16px;
             font-size: 14px;
           }

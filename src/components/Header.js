@@ -78,29 +78,30 @@ console.log({userData})
                     <div className='row align-items-center'>
                         <div className='col-lg-2 col-md-4 col-6'>
                             <div className='rz_logo'>                             
-                                    <span className='ps_logo_header'> <img src={(userData.adminprofileUrl)?userData.adminprofileUrl:process.env.APP_LOGO} alt="" /></span>
+                                <span className='ps_logo_header'> 
+                                    <img src={(userData.adminprofileUrl)?userData.adminprofileUrl:process.env.APP_LOGO} alt="" />
+                                </span>
                             </div>
                         </div>
-                        <div className='col-lg-8 col-md-6 px-0 col-4'>
+                        <div className='col-6 d-lg-none text-end'>
+                            <button className='rz_mobile_menu_btn' onClick={() => setMyState(setQuery, { toggleBtn: !state.toggleBtn })}>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </button>
+                        </div>
+                        <div className='col-lg-8 d-none d-lg-block'>
                             <div expand="lg" className="rz_navMenu">
                                 <div className='rz_nav_box'>
-                                    <div className={`rz_menuOverlay ${state.toggleBtn == true ? 'rz_show' : 'rz_hide'}`}
-                                        onClick={() => setMyState(setQuery, { toggleBtn: !state.toggleBtn })}
-                                    ></div>
-                                    <div id="navbarScroll" className={state.toggleBtn == true ? 'navbarScroll openMenu' : 'navbarScroll'} >
-                                        <a className='navBarToggle' onClick={(e) => setMyState(setQuery, { toggleBtn: !state.toggleBtn })} >
-                                            <span></span>
-                                        </a>
-                                        <ul
-                                            className="navbar-scroll"
-                                            style={{ maxHeight: '100px' }}
-                                        >
+                                    <div id="navbarScroll" className='navbarScroll'>
+                                        <ul className="navbar-scroll" style={{ maxHeight: '100px' }}>
                                             {
                                                 userData.role == 'Admin' ?
                                                     <>
                                                         <li>
                                                             <a onClick={(e) => {
                                                                 changePage(e, "/admin/dashboard")
+                                                                setMyState(setQuery, { toggleBtn: false })
                                                             }}
                                                                 className={isActive("/admin/dashboard") ? "nav-link active" : "nav-link "}
                                                             >
@@ -110,12 +111,14 @@ console.log({userData})
                                                         <li>
                                                             <a onClick={(e) => {
                                                                 changePage(e, "/admin/users")
+                                                                setMyState(setQuery, { toggleBtn: false })
                                                             }} className={isActive("/admin/users") ? "nav-link active" : "nav-link"}>
                                                                 <span>{svg.app.userIcon}</span>Users</a>
                                                         </li>
                                                         <li>
                                                             <a onClick={(e) => {
                                                                 changePage(e, "/admin/templates")
+                                                                setMyState(setQuery, { toggleBtn: false })
                                                             }} className={isActive("/admin/templates") ? "nav-link active" : "nav-link "}>
                                                                 <span>{svg.app.myReels}</span>Templates
                                                             </a>
@@ -130,6 +133,7 @@ console.log({userData})
                                                         <li>
                                                             <a onClick={(e) => {
                                                                 changePage(e, "/admin/assets_tabs")
+                                                                setMyState(setQuery, { toggleBtn: false })
                                                             }} className={isActive("/admin/assets_tabs") ? "nav-link active" : "nav-link "}>
                                                                 <span>{svg.app.categories}</span>Assets
                                                             </a>
@@ -137,6 +141,7 @@ console.log({userData})
                                                         <li>
                                                             <a onClick={(e) => {
                                                                 changePage(e, "/admin/setting")
+                                                                setMyState(setQuery, { toggleBtn: false })
                                                             }} className={isActive("/admin/setting") ? "nav-link active" : "nav-link "}>
                                                                 <span>{svg.app.Plan_icon}</span>Plans
                                                             </a>
@@ -144,6 +149,7 @@ console.log({userData})
                                                         <li>
                                                             <a onClick={(e) => {
                                                                 changePage(e, "/admin/paymentSetting")
+                                                                setMyState(setQuery, { toggleBtn: false })
                                                             }} className={isActive("/admin/paymentSetting") ? "nav-link active" : "nav-link "}>
                                                                 <span>{svg.app.settings}</span>Integrations
                                                             </a>
@@ -156,6 +162,7 @@ console.log({userData})
                                                         <li>
                                                             <a onClick={(e) => {
                                                                 changePage(e, "/dashboard")
+                                                                setMyState(setQuery, { toggleBtn: false })
                                                             }}
                                                                 className={isActive("/dashboard") ? "nav-link active" : "nav-link "}
                                                             >
@@ -168,6 +175,7 @@ console.log({userData})
                                                                
                                                                 setIsShow(true)
                                                                 changePage(e, "/create_post")
+                                                                setMyState(setQuery, { toggleBtn: false })
                                                             }} className={!router.query.id && isActive("/create_post") ? "nav-link active" : "nav-link "}>
                                                                 <span>{svg.app.create_post}</span>Create Post
                                                             </a>
@@ -175,6 +183,7 @@ console.log({userData})
                                                         <li>
                                                             <a onClick={(e) => {
                                                                 changePage(e, "/calendar")
+                                                                setMyState(setQuery, { toggleBtn: false })
                                                             }} className={isActive("/calendar") ? "nav-link active" : "nav-link "}>
                                                                 <span>{svg.app.myReels}</span>Calendar
                                                             </a>
@@ -183,6 +192,7 @@ console.log({userData})
                                                          <li>
                                                             <a onClick={(e) => {
                                                                 changePage(e, "/image_editor/image_edit")
+                                                                setMyState(setQuery, { toggleBtn: false })
                                                             }} className={isActive("/image_editor/image_edit") ? "nav-link active" : "nav-link "}>
                                                                 <span>{svg.app.image_creator}</span>Image Creator
                                                             </a>
@@ -191,6 +201,7 @@ console.log({userData})
                                                         <li>
                                                             <a onClick={(e) => {
                                                                 changePage(e, "/Integrations")
+                                                                setMyState(setQuery, { toggleBtn: false })
                                                             }} className={isActive("/Integrations") ? "nav-link active" : "nav-link "}>
                                                                 <span>{svg.app.integration}</span>Integrations
                                                             </a>
@@ -198,6 +209,7 @@ console.log({userData})
                                                         <li>
                                                             <a onClick={(e) => {
                                                                 changePage(e, "/getdraft")
+                                                                setMyState(setQuery, { toggleBtn: false })
                                                             }} className={isActive("/getdraft") ? "nav-link active" : "nav-link "}>
                                                                 <span>{svg.app.Plan_icon}</span>Drafts
                                                             </a>
@@ -212,6 +224,7 @@ console.log({userData})
                                                         <li>
                                                             <a onClick={(e) => {
                                                                 changePage(e, "/admin/templates")
+                                                                setMyState(setQuery, { toggleBtn: false })
                                                             }} className={isActive("/admin/templates") ? "nav-link active" : "nav-link "}>
                                                                 <span>{svg.app.myReels}</span>Templates
                                                             </a>
@@ -224,13 +237,12 @@ console.log({userData})
                                         </ul>
                                     </div>
                                 </div>
-
                             </div>
                             {process.env.TYPE=="demo" &&
                             <p className='rz_note_for_demo'><b>Note: </b>Feel free to test all the features before purchasing, keep in mind that some features are disabled in Demo mode.</p>
                             }
-                            </div>
-                        <div className='col-lg-2 col-md-2 col-2'>
+                        </div>
+                        <div className='col-lg-2 col-4'>
                             <div className='rz_rightHeader'>
 
 
@@ -275,7 +287,273 @@ console.log({userData})
                         </div>
                     </div>
                 </div>
+                {/* Mobile Menu */}
+                <div className={`rz_mobile_menu ${state.toggleBtn ? 'active' : ''}`}>
+                    <button className='rz_mobile_close' onClick={() => setMyState(setQuery, { toggleBtn: false })}>
+                        <span>×</span>
+                    </button>
+                    <div className='rz_mobile_menu_content'>
+                        <ul className="navbar-scroll">
+                            {userData.role == 'Admin' && (
+                                <>
+                                    <li>
+                                        <a onClick={(e) => {
+                                            changePage(e, "/admin/dashboard")
+                                            setMyState(setQuery, { toggleBtn: false })
+                                        }}
+                                        className={isActive("/admin/dashboard") ? "nav-link active" : "nav-link"}
+                                        >
+                                            <span>{svg.app.dashBoard}</span>Dashboard
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a onClick={(e) => {
+                                            changePage(e, "/admin/users")
+                                            setMyState(setQuery, { toggleBtn: false })
+                                        }} className={isActive("/admin/users") ? "nav-link active" : "nav-link"}>
+                                            <span>{svg.app.userIcon}</span>Users
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a onClick={(e) => {
+                                            changePage(e, "/admin/templates")
+                                            setMyState(setQuery, { toggleBtn: false })
+                                        }} className={isActive("/admin/templates") ? "nav-link active" : "nav-link"}>
+                                            <span>{svg.app.myReels}</span>Templates
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a onClick={(e) => {
+                                            changePage(e, "/admin/assets_tabs")
+                                            setMyState(setQuery, { toggleBtn: false })
+                                        }} className={isActive("/admin/assets_tabs") ? "nav-link active" : "nav-link"}>
+                                            <span>{svg.app.categories}</span>Assets
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a onClick={(e) => {
+                                            changePage(e, "/admin/setting")
+                                            setMyState(setQuery, { toggleBtn: false })
+                                        }} className={isActive("/admin/setting") ? "nav-link active" : "nav-link"}>
+                                            <span>{svg.app.Plan_icon}</span>Plans
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a onClick={(e) => {
+                                            changePage(e, "/admin/paymentSetting")
+                                            setMyState(setQuery, { toggleBtn: false })
+                                        }} className={isActive("/admin/paymentSetting") ? "nav-link active" : "nav-link"}>
+                                            <span>{svg.app.settings}</span>Integrations
+                                        </a>
+                                    </li>
+                                </>
+                            )}
+                            {userData.role == 'User' && (
+                                <>
+                                    <li>
+                                        <a onClick={(e) => {
+                                            changePage(e, "/dashboard")
+                                            setMyState(setQuery, { toggleBtn: false })
+                                        }}
+                                        className={isActive("/dashboard") ? "nav-link active" : "nav-link"}
+                                        >
+                                            <span>{svg.app.dashBoard}</span>Dashboard
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a onClick={(e) => {
+                                            setIsShow(true)
+                                            changePage(e, "/create_post")
+                                            setMyState(setQuery, { toggleBtn: false })
+                                        }} className={!router.query.id && isActive("/create_post") ? "nav-link active" : "nav-link"}>
+                                            <span>{svg.app.create_post}</span>Create Post
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a onClick={(e) => {
+                                            changePage(e, "/calendar")
+                                            setMyState(setQuery, { toggleBtn: false })
+                                        }} className={isActive("/calendar") ? "nav-link active" : "nav-link"}>
+                                            <span>{svg.app.myReels}</span>Calendar
+                                        </a>
+                                    </li>
+                                    {userData?.plan?.editor_access && (
+                                        <li>
+                                            <a onClick={(e) => {
+                                                changePage(e, "/image_editor/image_edit")
+                                                setMyState(setQuery, { toggleBtn: false })
+                                            }} className={isActive("/image_editor/image_edit") ? "nav-link active" : "nav-link"}>
+                                                <span>{svg.app.image_creator}</span>Image Creator
+                                            </a>
+                                        </li>
+                                    )}
+                                    <li>
+                                        <a onClick={(e) => {
+                                            changePage(e, "/Integrations")
+                                            setMyState(setQuery, { toggleBtn: false })
+                                        }} className={isActive("/Integrations") ? "nav-link active" : "nav-link"}>
+                                            <span>{svg.app.integration}</span>Integrations
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a onClick={(e) => {
+                                            changePage(e, "/getdraft")
+                                            setMyState(setQuery, { toggleBtn: false })
+                                        }} className={isActive("/getdraft") ? "nav-link active" : "nav-link"}>
+                                            <span>{svg.app.Plan_icon}</span>Drafts
+                                        </a>
+                                    </li>
+                                </>
+                            )}
+                            {userData.role == 'Template Creator' && (
+                                <>
+                                    <li>
+                                        <a onClick={(e) => {
+                                            changePage(e, "/admin/templates")
+                                            setMyState(setQuery, { toggleBtn: false })
+                                        }} className={isActive("/admin/templates") ? "nav-link active" : "nav-link"}>
+                                            <span>{svg.app.myReels}</span>Templates
+                                        </a>
+                                    </li>
+                                </>
+                            )}
+                        </ul>
+                    </div>
+                </div>
+                <div className={`rz_menu_overlay ${state.toggleBtn ? 'active' : ''}`} onClick={() => setMyState(setQuery, { toggleBtn: false })}></div>
             </div>
+            <style jsx global>{`
+                .rz_mobile_menu_btn {
+                    display: none;
+                    background: none;
+                    border: none;
+                    padding: 10px;
+                    margin-left: auto;
+                }
+
+                .rz_mobile_menu_btn span {
+                    display: block;
+                    width: 25px;
+                    height: 2px;
+                    background: #fff;
+                    margin: 5px 0;
+                    transition: 0.3s;
+                }
+
+                .rz_mobile_menu {
+                    position: fixed;
+                    top: 0;
+                    right: -100%;
+                    width: 300px;
+                    height: 100vh;
+                    background: #0D0D14;
+                    z-index: 1000;
+                    transition: 0.3s ease;
+                    padding: 20px;
+                    overflow-y: auto;
+                    box-shadow: -5px 0 15px rgba(0,0,0,0.3);
+                    visibility: hidden;
+                }
+
+                .rz_mobile_menu.active {
+                    right: 0;
+                    visibility: visible;
+                }
+
+                .rz_mobile_menu_content {
+                    padding-top: 60px;
+                }
+
+                .rz_mobile_menu .navbar-scroll {
+                    list-style: none;
+                    padding: 0;
+                    margin: 0;
+                }
+
+                .rz_mobile_menu .nav-link {
+                    color: #fff;
+                    padding: 12px 15px;
+                    display: flex;
+                    align-items: center;
+                    border-radius: 8px;
+                    margin-bottom: 5px;
+                    transition: all 0.3s ease;
+                    cursor: pointer;
+                }
+
+                .rz_mobile_menu .nav-link span {
+                    margin-right: 12px;
+                    opacity: 0.7;
+                }
+
+                .rz_mobile_menu .nav-link:hover,
+                .rz_mobile_menu .nav-link.active {
+                    background: rgba(255,255,255,0.1);
+                }
+
+                .rz_mobile_close {
+                    position: absolute;
+                    top: 20px;
+                    right: 20px;
+                    background: none;
+                    border: none;
+                    color: #fff;
+                    font-size: 28px;
+                    width: 40px;
+                    height: 40px;
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    cursor: pointer;
+                    transition: 0.3s;
+                    z-index: 1001;
+                }
+
+                .rz_mobile_close:hover {
+                    background: rgba(255,255,255,0.1);
+                }
+
+                .rz_menu_overlay {
+                    display: none;
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: rgba(0,0,0,0.5);
+                    z-index: 999;
+                    opacity: 0;
+                    visibility: hidden;
+                    transition: 0.3s;
+                }
+
+                @media (max-width: 991px) {
+                    .rz_mobile_menu_btn {
+                        display: block;
+                    }
+
+                    .rz_menu_overlay {
+                        display: block;
+                    }
+
+                    .rz_menu_overlay.active {
+                        opacity: 1;
+                        visibility: visible;
+                    }
+
+                    .rz_note_for_demo {
+                        margin-top: 20px;
+                        padding: 15px;
+                        background: rgba(255,255,255,0.05);
+                        border-radius: 8px;
+                    }
+
+                    .rz_mainHeader .rz_navMenu {
+                        display: none;
+                    }
+                }
+            `}</style>
 
             <MyModal
                 shown={state.createTemplatePopup}

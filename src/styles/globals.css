@@ -11157,10 +11157,10 @@ ul.ps_page_links li a {
 }
 .ps-plan-price a {
   display: inline-block;    
-  background: #ffffff;
+  /* background: #ffffff; */
   border: none;
   border-radius: 40px;
-  color: #ff650f;
+  color: #6366f1;
   font-size: 40px;
   font-weight: 700;    
 }

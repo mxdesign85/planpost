@@ -7,6 +7,8 @@ import svg from '../../components/svg'
 import { appStore } from "@/zu_store/appStore";
 import { toast } from 'react-toastify'
 import { NoDataWrapper, common, setMyState } from '@/components/Common';
+import Link from 'next/link'
+
 let Auth = ({ checkData }) => {
     let myStore = appStore(state => state);
     const router = useRouter();
@@ -164,6 +166,36 @@ let Auth = ({ checkData }) => {
                         overflow: hidden;
                     }
 
+                    .back-button {
+                        position: absolute;
+                        top: 30px;
+                        left: 30px;
+                        z-index: 10;
+                        display: flex;
+                        align-items: center;
+                        gap: 8px;
+                        color: #fff;
+                        text-decoration: none;
+                        font-size: 16px;
+                        padding: 8px 16px;
+                        border-radius: 8px;
+                        background: rgba(255, 255, 255, 0.1);
+                        border: 1px solid rgba(255, 255, 255, 0.1);
+                        backdrop-filter: blur(10px);
+                        transition: all 0.3s ease;
+                    }
+
+                    .back-button:hover {
+                        background: rgba(255, 255, 255, 0.15);
+                        transform: translateX(-5px);
+                    }
+
+                    .back-button svg {
+                        width: 20px;
+                        height: 20px;
+                        fill: currentColor;
+                    }
+
                     .rz_loginWrapper::before {
                         content: '';
                         position: absolute;
@@ -264,6 +296,12 @@ let Auth = ({ checkData }) => {
 
             <div id="siteLoader"></div>
             <div className='rz_loginWrapper'>
+                <Link href="/" className="back-button">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
+                    </svg>
+                    Back to Home
+                </Link>
                 <div className='rz_loginWrapper_after'><img alt="" src="assets/images/auth/after.png" /></div>
                 
                     {/* <div className='auth_img_box order-md-1 order-2'>
