@@ -49,7 +49,7 @@ body {
   color: var(--textColor);
   font-size: 16px;
   font-weight: 400;
-  background-color: var(--bodyColor);
+  background-color: var(--textColor);
   scroll-behavior: smooth;
   scrollbar-width: 2px;
   scrollbar-color: #426bff #E6ECF2;
@@ -388,6 +388,7 @@ textarea:focus {
 .ps_conatiner {
   max-width: 1320px;
   margin: auto;
+  margin-top: 150px;
 }
 
 .ps_min_conatiner {
@@ -1749,14 +1750,14 @@ input[type="search"]::-webkit-search-results-decoration {
 
 .rz_mainHeader {
   background-color: #000;
-  ;
   padding: 10px 50px;
   position: fixed;
   z-index: 100;
   width: 100%;
-  max-height: 70px;
+  max-height: 90px;
   height: 100%;
   top: 0;
+  box-shadow: 0 6px 11px -1px rgb(213 179 178 / 9%);
 }
 
 .navbarScroll ul a span {
@@ -1781,7 +1782,7 @@ input[type="search"]::-webkit-search-results-decoration {
   font-size: 16px;
   font-weight: 400;
   padding: 0px 20px;
-  color: var(--pColor);
+  color: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1876,12 +1877,12 @@ input[type="search"]::-webkit-search-results-decoration {
 .rz_nav_box {
   top: 0;
   position: absolute;
-  background: #000;
+  /* background: #000; */
   display: flex;
   height: 95px;
   border-radius: 0px 0px 60px 60px;
   padding: 25px 60px;
-  box-shadow: 0 6px 11px -1px rgb(213 179 178 / 9%);
+  /* box-shadow: 0 6px 11px -1px rgb(213 179 178 / 9%); */
 }
 
 .rz_userDropdown {
@@ -1900,7 +1901,7 @@ input[type="search"]::-webkit-search-results-decoration {
 }
 
 .rz_profileDropdown p {
-  color: var(--bghoverColor);
+  color: #fff;
   font-size: 16px;
   font-weight: 500;
 }
@@ -3687,7 +3688,7 @@ table.rz_table thead {
   font-size: 26px;
   line-height: 30px;
   font-weight: 700;
-  color: var(--headdingColor);
+  color: #fff;
   margin-bottom: 10px;
 }
 
@@ -5036,7 +5037,7 @@ table.rz_table thead {
 .ps_header_back span {
   font-size: 16px;
   font-weight: 500;
-  color: var(--pColor);
+  color: #fff;
   margin-left: 10px;
   transition: all .5s;
 }
@@ -8842,7 +8843,7 @@ ul.ps_page_links li a {
     left: 0;
     right: 0;
     top: 0;
-    background-color: var(--whiteColor);
+    /* background-color: var(--whiteColor); */
   }
 
   .navBarToggle {
