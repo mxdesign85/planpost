@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M12 0L14.59 8.26L23.17 8.55L16.35 13.95L18.47 22.35L12 17.3L5.53 22.35L7.65 13.95L0.83 8.55L9.41 8.26L12 0Z" fill="url(#star-gradient)"/>
+    <defs>
+        <linearGradient id="star-gradient" x1="0" y1="0" x2="24" y2="24" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#6366f1"/>
+            <stop offset="100%" stop-color="#22d3ee"/>
+        </linearGradient>
+    </defs>
+</svg> 
