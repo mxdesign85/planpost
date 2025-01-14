@@ -37,7 +37,7 @@ app.prepare().then(() => {
     process.exit(1)
   })
   .listen(port, () => {
-    console.log(`> Ready on http://${hostname}:${port}`)
+    console.log(`> Ready on https://${hostname}:${port}`)
   })
 })
 
