@@ -1,20 +1,64 @@
 /** @type {import('next').NextConfig} */
+const webpack = require('webpack');
 
 const nextConfig = {
-  webpack: (config, { dev, isServer }) => {
-    config.resolve.fallback = {
-      fs: false,
-      dns: false,
-      net: false,
-      tls: false,
-      child_process: false,
-    };
+  reactStrictMode: true,
+  transpilePackages: [
+    '@react-oauth/google',
+    '@google/generative-ai'
+  ],
+  experimental: {
+    serverComponentsExternalPackages: ['googleapis', 'google-auth-library', 'gcp-metadata', 'google-logging-utils']
+  },
+  webpack: (config, { isServer }) => {
+    if (!isServer) {
+      config.resolve.alias = {
+        ...config.resolve.alias,
+        'node:events': 'events',
+        'node:util': 'util',
+        'node:process': 'process/browser',
+        'node:stream': 'stream-browserify',
+        'node:buffer': 'buffer',
+        'node:crypto': 'crypto-browserify',
+        'node:http': 'stream-http',
+        'node:https': 'https-browserify',
+        'node:os': 'os-browserify/browser',
+        'node:path': 'path-browserify',
+        'node:zlib': 'browserify-zlib'
+      };
 
-    // Disable cache in development
-    if (dev) {
-      config.cache = false;
+      config.resolve.fallback = {
+        ...config.resolve.fallback,
+        fs: false,
+        net: false,
+        tls: false,
+        dns: false,
+        child_process: false,
+        http: require.resolve('stream-http'),
+        https: require.resolve('https-browserify'),
+        os: require.resolve('os-browserify'),
+        path: require.resolve('path-browserify'),
+        stream: require.resolve('stream-browserify'),
+        crypto: require.resolve('crypto-browserify'),
+        zlib: require.resolve('browserify-zlib'),
+        events: require.resolve('events/'),
+        util: require.resolve('util/'),
+        buffer: require.resolve('buffer/')
+      };
+
+      config.plugins.push(
+        new webpack.ProvidePlugin({
+          process: 'process/browser',
+          Buffer: ['buffer', 'Buffer']
+        })
+      );
+
+      // Exclude server-only packages from client bundles
+      config.module.rules.push({
+        test: /node_modules[/\\](googleapis|google-auth-library|gcp-metadata|google-logging-utils)[/\\].+\.js$/,
+        loader: 'null-loader'
+      });
     }
-
     return config;
   },
   env: {
@@ -86,10 +130,10 @@ const nextConfig = {
     ALLOW_VIDEO: ".mp4, .MP4, .webm, .Webm, .FLV, .flv, .MKV, .mkv, .WebM , .mov" ,
     ALLOW_AUDIO: ".mp3, .MP3",
     TYPE: "",
-    GOOGLE_CLIENT_ID : "",
-    GOOGLE_CLIENT_SECRET : "",
-    GOOGLE_REDIRECT_URIS : "domain_name/api/social" // Replace the domain name with the Live_URL
-
+    GOOGLE_CLIENT_ID: process.env.GOOGLE_CLIENT_ID,
+    GOOGLE_CLIENT_SECRET: process.env.GOOGLE_CLIENT_SECRET,
+    GOOGLE_REDIRECT_URIS: "domain_name/api/social", // Replace the domain name with the Live_URL
+    GOOGLE_API_KEY: process.env.GOOGLE_API_KEY
   },
   rewrites: async () => {
     return [
@@ -99,7 +143,6 @@ const nextConfig = {
       },
     ];
   },
-  reactStrictMode: false,
   eslint: {
     ignoreDuringBuilds: true,
   },
