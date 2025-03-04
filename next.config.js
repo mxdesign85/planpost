@@ -83,7 +83,7 @@ const nextConfig = {
     DB_URL: `mongodb+srv://planfeed:1ucZHfSdd4DeKoXs@planfeed.yds83.mongodb.net/`,
 
     //ChatGPT API details
-    OPENAI_API_KEY: "sk-proj-32g7z5GJg1m9QqqWJ9HmT3BlbkFJttOdpjqUhTFzx5VGeQTU",
+    OPENAI_API_KEY: "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",
 
     //S3 Bucket Details
     SECRET_ACCESS_KEY: "oTENua5+I5gUOjbRtuYm9nVD0qFBiGGO1wrm7YwU",
