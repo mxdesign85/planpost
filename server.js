@@ -6,7 +6,7 @@ var cron = require('node-cron');
 
 const dev = process.env.NODE_ENV !== 'production'
 const hostname = 'planpost.net'
-const port = 3016
+const port = 3017
 const app = next({ dev, hostname, port })
 const handle = app.getRequestHandler()
  
